@@ -1613,9 +1613,14 @@ var CAST_KEYS = Object.keys(CAST);
   function artFor(key, withImage) {
     if (CAST[key]) return CAST[key];
     var img = imageOf(key);
-    if (img && (withImage || !ART[key])) return '<img src="' + esc(img) + '" alt="">';
+    if (img && (withImage || !ART[key])) return '<img src="' + esc(img) + '" alt="" data-key="' + key + '" onerror="artFail(this)">';
     return ART[key] || ART_FALLBACK;
   }
+  // Картинка не завантажилась (наприклад, файл не в тій папці): ставимо слот-символ, щоб не було порожньої арки.
+  window.artFail = function (el) {
+    var k = el.getAttribute('data-key');
+    el.outerHTML = ART[k] || ART_FALLBACK;
+  };
   function load(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
   function save(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* storage off */ } }
   function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
