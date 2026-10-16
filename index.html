@@ -5,9 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Барабани долі</title>
 <meta name="description" content="Хелловінський квіз Magnetics: девʼять спінів і барабани долі покажуть твою темну сторону.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Барабани долі">
+<meta property="og:description" content="Хелловінський квіз Magnetics: девʼять спінів і барабани долі покажуть твою темну сторону.">
+<meta property="og:image" content="https://eka-debug.github.io/halloween-quiz/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Unicase:wght@500;600;700&family=Onest:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Unicase:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Onest:wght@400;500;600;700&display=swap">
 <style>
 /* Layout: one slot cabinet hosts the whole quiz; the result unfolds beneath it as a tarot card on bone paper. */
 :root {
@@ -38,7 +45,8 @@
   --scrim: rgba(15, 8, 22, 0.88);
   --shadow: rgba(0, 0, 0, 0.55);
 
-  --font-display: "Cormorant Unicase", "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-deco: "Cormorant Unicase", "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
   --font-body: "Onest", "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
 
   --blood: #A3172E;
@@ -46,16 +54,21 @@
   --drip-reel: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='50'><path d='M0 0 H260 V4 H229 Q224 4 224 10 V24 A4 4 0 0 1 216 24 V10 Q216 4 211 4 H180 Q175 4 175 10 V14 A5 5 0 0 1 165 14 V10 Q165 4 160 4 H128 Q123 4 123 10 V8 A3 3 0 0 1 117 8 V10 Q117 4 112 4 H89 Q84 4 84 10 V20 A6 6 0 0 1 72 20 V10 Q72 4 67 4 H39 Q34 4 34 10 V10 A4 4 0 0 1 26 10 V10 Q26 4 21 4 H0 Z' fill='%23A3172E'/><path transform='translate%28220 38%29 scale%280.36%29' d='M0 -10 C3 -4 6 0 6 4 C6 8 3 11 0 11 C-3 11 -6 8 -6 4 C-6 0 -3 -4 0 -10 Z' fill='%23A3172E'/></svg>");
   --drip-card: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='74'><path d='M0 0 H300 V6 H272 Q267 6 267 12 V47 A5 5 0 0 1 257 47 V12 Q257 6 252 6 H207 Q202 6 202 12 V28 A6 6 0 0 1 190 28 V12 Q190 6 185 6 H149 Q144 6 144 12 V14 A4 4 0 0 1 136 14 V12 Q136 6 131 6 H98 Q93 6 93 12 V39 A7 7 0 0 1 79 39 V12 Q79 6 74 6 H40 Q35 6 35 12 V21 A5 5 0 0 1 25 21 V12 Q25 6 20 6 H0 Z' fill='%23A3172E'/><path transform='translate%28262 63%29 scale%280.45%29' d='M0 -10 C3 -4 6 0 6 4 C6 8 3 11 0 11 C-3 11 -6 8 -6 4 C-6 0 -3 -4 0 -10 Z' fill='%23A3172E'/></svg>");  /* h=74 */
 
+  /* wallpaper: magnets pulling pumpkins, blood drops, sparkles, bats (tile 300) */
+  --bg-pattern: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'><g transform='translate%2878 44%29 rotate%280%29 scale%281%29'><path d='M-19 14 V-1 A19 19 0 0 1 19 -1 V14 H8 V-1 A8 8 0 0 0 -8 -1 V14 Z' fill='none' stroke='rgba%28214,52,74,0.30%29' stroke-width='2.4' stroke-linejoin='round'/><path d='M-19 7 H-8 V14 H-19 Z M8 7 H19 V14 H8 Z' fill='rgba%28243,230,209,0.20%29'/></g><g transform='translate%2878 72%29 rotate%280%29 scale%281%29' fill='none' stroke='rgba%28226,177,91,0.20%29' stroke-width='2' stroke-linecap='round'><path d='M-10 0 Q0 5 10 0'/><path d='M-14 8 Q0 15 14 8'/></g><g transform='translate%2878 112%29 rotate%280%29 scale%281%29' fill='none' stroke='rgba%28238,122,49,0.20%29' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><path d='M-5 -15 C-20 -20 -30 -8 -30 5 C-30 18 -19 25 -6 23 C-2 25 2 25 6 23 C19 25 30 18 30 5 C30 -8 20 -20 5 -15 C2 -17 -2 -17 -5 -15 Z'/><path d='M0 -16 C0 -22 2 -26 7 -28'/><path d='M-15 1 L-9 -6 L-4 2 Z M4 2 L9 -6 L15 1 Z' fill='rgba%28238,122,49,0.20%29' stroke='none'/><path d='M-15 9 L-10 13 L-5 9 L0 13 L5 9 L10 13 L15 9'/></g><g transform='translate%28228 256%29 rotate%28180%29 scale%281%29'><path d='M-19 14 V-1 A19 19 0 0 1 19 -1 V14 H8 V-1 A8 8 0 0 0 -8 -1 V14 Z' fill='none' stroke='rgba%28214,52,74,0.30%29' stroke-width='2.4' stroke-linejoin='round'/><path d='M-19 7 H-8 V14 H-19 Z M8 7 H19 V14 H8 Z' fill='rgba%28243,230,209,0.20%29'/></g><g transform='translate%28228 228%29 rotate%28180%29 scale%281%29' fill='none' stroke='rgba%28226,177,91,0.20%29' stroke-width='2' stroke-linecap='round'><path d='M-10 0 Q0 5 10 0'/><path d='M-14 8 Q0 15 14 8'/></g><g transform='translate%28228 188%29 rotate%28360%29 scale%281%29' fill='none' stroke='rgba%28238,122,49,0.20%29' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><path d='M-5 -15 C-20 -20 -30 -8 -30 5 C-30 18 -19 25 -6 23 C-2 25 2 25 6 23 C19 25 30 18 30 5 C30 -8 20 -20 5 -15 C2 -17 -2 -17 -5 -15 Z'/><path d='M0 -16 C0 -22 2 -26 7 -28'/><path d='M-15 1 L-9 -6 L-4 2 Z M4 2 L9 -6 L15 1 Z' fill='rgba%28238,122,49,0.20%29' stroke='none'/><path d='M-15 9 L-10 13 L-5 9 L0 13 L5 9 L10 13 L15 9'/></g><path transform='translate%28214 64%29 scale%281.1%29' d='M0 -10 C3 -4 6 0 6 4 C6 8 3 11 0 11 C-3 11 -6 8 -6 4 C-6 0 -3 -4 0 -10 Z' fill='rgba%28163,23,46,0.55%29'/><path transform='translate%2830 236%29 scale%280.9%29' d='M0 -10 C3 -4 6 0 6 4 C6 8 3 11 0 11 C-3 11 -6 8 -6 4 C-6 0 -3 -4 0 -10 Z' fill='rgba%28163,23,46,0.55%29'/><path transform='translate%28150 150%29 scale%280.7%29' d='M0 -10 C3 -4 6 0 6 4 C6 8 3 11 0 11 C-3 11 -6 8 -6 4 C-6 0 -3 -4 0 -10 Z' fill='rgba%28163,23,46,0.55%29'/><path transform='translate%28160 22%29 scale%281%29' d='M0 -8 L2 -2 L8 0 L2 2 L0 8 L-2 2 L-8 0 L-2 -2 Z' fill='rgba%28226,177,91,0.20%29'/><path transform='translate%28276 128%29 scale%280.8%29' d='M0 -8 L2 -2 L8 0 L2 2 L0 8 L-2 2 L-8 0 L-2 -2 Z' fill='rgba%28226,177,91,0.20%29'/><path transform='translate%28118 238%29 scale%280.9%29' d='M0 -8 L2 -2 L8 0 L2 2 L0 8 L-2 2 L-8 0 L-2 -2 Z' fill='rgba%28226,177,91,0.20%29'/><path transform='translate%2816 120%29 scale%280.9%29' d='M0 -2 C-4 -7 -10 -8 -16 -4 C-13 -2 -13 1 -14 4 C-10 2 -7 3 -6 6 C-4 4 -2 4 0 7 C2 4 4 4 6 6 C7 3 10 2 14 4 C13 1 13 -2 16 -4 C10 -8 4 -7 0 -2 Z' fill='rgba%28226,177,91,0.20%29'/><path transform='translate%28196 116%29 scale%280.75%29' d='M0 -2 C-4 -7 -10 -8 -16 -4 C-13 -2 -13 1 -14 4 C-10 2 -7 3 -6 6 C-4 4 -2 4 0 7 C2 4 4 4 6 6 C7 3 10 2 14 4 C13 1 13 -2 16 -4 C10 -8 4 -7 0 -2 Z' fill='rgba%28226,177,91,0.20%29'/></svg>");
+
   --cell: clamp(76px, 23vw, 124px);
   color-scheme: dark;
 }
 
-html { background: var(--night); }
+html { background: var(--bg-pattern) 0 0 / 300px 300px repeat, var(--night); }
 [hidden] { display: none !important; }
 body {
   margin: 0;
   position: relative;
-  background: radial-gradient(110% 55% at 50% 0%, var(--night-glow) 0%, var(--night) 65%) no-repeat, var(--night);
+  background: radial-gradient(70% 60% at 50% 30%, rgba(27, 16, 38, 0.82) 0%, rgba(27, 16, 38, 0.55) 55%, rgba(27, 16, 38, 0) 100%) no-repeat,
+              radial-gradient(110% 55% at 50% 0%, rgba(46, 22, 56, 0.9) 0%, rgba(46, 22, 56, 0) 65%) no-repeat;
+  min-height: 100vh;
   color: var(--bone);
   font-family: var(--font-body);
   font-size: 16px;
@@ -81,10 +94,17 @@ button, input, select { font: inherit; color: inherit; }
   background: var(--drip-top) repeat-x left top;
   pointer-events: none;
 }
-.page > * { width: 100%; max-width: 560px; min-width: 0; }
+.col-left, .col-right { display: contents; }
+.cabinet, .tarot, .actions, .census, .card-back { width: 100%; max-width: 560px; min-width: 0; }
+.cabinet { order: 1; }
+.tarot { order: 2; }
+.actions { order: 3; }
+.census { order: 4; }
 
 /* ---------- Cabinet ---------- */
 .cabinet {
+  display: flex;
+  flex-direction: column;
   background: var(--velvet);
   border: 2px solid var(--brass-dim);
   border-radius: 36px 36px 18px 18px;
@@ -107,7 +127,7 @@ button, input, select { font: inherit; color: inherit; }
 }
 .marquee-title {
   margin: 0;
-  font-family: var(--font-display);
+  font-family: var(--font-deco);
   font-weight: 700;
   font-size: clamp(25px, 6vw, 32px);
   line-height: 1;
@@ -186,15 +206,16 @@ h1, h2, h3 { text-wrap: balance; margin: 0; }
 h1 {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(32px, 8.4vw, 46px);
-  line-height: 1.02;
+  font-size: clamp(28px, 7.4vw, 40px);
+  line-height: 1.12;
   color: var(--bone);
 }
 .q-title, .ready-title, .landed-name {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(26px, 6.4vw, 34px);
-  line-height: 1.08;
+  font-size: clamp(23px, 5.8vw, 29px);
+  line-height: 1.22;
+  letter-spacing: 0.005em;
   color: var(--bone);
 }
 .lead { margin: 0; max-width: 46ch; color: var(--smoke); font-size: 16.5px; line-height: 1.55; }
@@ -270,8 +291,8 @@ h1 {
   border-radius: 12px;
   color: var(--bone);
   font-weight: 500;
-  font-size: 16px;
-  line-height: 1.35;
+  font-size: 16.5px;
+  line-height: 1.4;
   cursor: pointer;
   transition: border-color 0.15s, background 0.15s;
 }
@@ -312,7 +333,7 @@ h1 {
 .arcana {
   display: flex; align-items: center; gap: 14px;
   margin: 0;
-  font-family: var(--font-display);
+  font-family: var(--font-deco);
   font-weight: 600;
   font-size: 20px;
   letter-spacing: 0.22em;
@@ -346,8 +367,8 @@ h1 {
 .tarot-name {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(30px, 7.4vw, 42px);
-  line-height: 1.04;
+  font-size: clamp(28px, 6.8vw, 38px);
+  line-height: 1.12;
   text-align: center;
   color: var(--paper-ink);
 }
@@ -355,9 +376,10 @@ h1 {
   margin: -6px 0 0;
   text-align: center;
   font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 1.3;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 18.5px;
+  line-height: 1.35;
   color: var(--wine);
 }
 .mask { margin: 0; text-align: center; font-size: 14.5px; color: var(--paper-muted); }
@@ -370,7 +392,7 @@ h1 {
   padding: 12px 0;
   border-top: 1px solid var(--brass-dim);
 }
-.traits dt { font-family: var(--font-display); font-weight: 700; font-size: 17.5px; line-height: 1.3; color: var(--wine); }
+.traits dt { font-family: var(--font-display); font-weight: 600; font-size: 16px; line-height: 1.35; color: var(--wine); }
 .traits dd { margin: 0; font-size: 15.5px; line-height: 1.5; min-width: 0; }
 .pair { display: flex; gap: 10px; align-items: flex-start; }
 .pair-ico { flex: none; width: 40px; height: 40px; border-radius: 50%; background: var(--velvet); display: grid; place-items: center; overflow: hidden; }
@@ -396,7 +418,7 @@ h1 {
   border-radius: 16px;
   padding: clamp(18px, 5vw, 26px);
 }
-.census h3 { font-family: var(--font-display); font-weight: 700; font-size: 26px; line-height: 1.1; color: var(--bone); }
+.census h3 { font-family: var(--font-display); font-weight: 700; font-size: 22px; line-height: 1.2; color: var(--bone); }
 .census-list { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
 .census-row {
   display: grid;
@@ -430,8 +452,7 @@ h1 {
 /* ---------- Card back (laptop layout only) ---------- */
 .card-back {
   display: none;
-  aspect-ratio: 5 / 7.2;
-  max-width: 100%;
+  min-height: 0;
   padding: 12px;
   background: radial-gradient(120% 80% at 50% 28%, var(--velvet-glow) 0%, var(--velvet) 70%);
   border: 2px solid var(--brass-dim);
@@ -463,8 +484,8 @@ h1 {
   border-radius: 999px 999px 14px 14px;
 }
 .back-arch svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-.back-q { position: relative; font: 700 clamp(96px, 9vw, 132px)/1 var(--font-display); color: var(--brass); }
-.back-title { margin: 0; font: 700 26px/1.1 var(--font-display); color: var(--bone); text-wrap: balance; }
+.back-q { position: relative; font: 700 clamp(96px, 9vw, 132px)/1 var(--font-deco); color: var(--brass); }
+.back-title { margin: 0; font: 700 22px/1.2 var(--font-display); color: var(--bone); text-wrap: balance; }
 .back-sub { margin: 0; max-width: 30ch; font-size: 15px; line-height: 1.5; color: var(--smoke); }
 @keyframes flipOut { to { transform: perspective(1400px) rotateY(90deg); } }
 @keyframes flipIn { from { transform: perspective(1400px) rotateY(-90deg); } to { transform: perspective(1400px) rotateY(0deg); } }
@@ -481,16 +502,18 @@ h1 {
     row-gap: 20px;
     max-width: 1120px;
     margin-inline: auto;
-    align-items: start;
+    align-items: stretch;
     justify-items: stretch;
+    padding-block: 96px 64px;
   }
-  .page { grid-template-rows: auto auto auto 1fr; }
-  .page > * { max-width: none; }
-  .cabinet { grid-column: 1; grid-row: 1; }
-  .actions { grid-column: 1; grid-row: 2; }
-  .census { grid-column: 1; grid-row: 3; }
-  .card-back, .tarot { grid-column: 2; grid-row: 1 / span 4; }
-  .card-back { display: block; }
+  .col-left, .col-right { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+  .col-left > *, .col-right > * { max-width: none; }
+  /* before the result: machine and closed card are the same height */
+  .page:not(.has-result) .cabinet { flex: 1 0 auto; }
+  .page:not(.has-result) .screen { flex: 1 0 auto; }
+  .card-back { display: block; flex: 1 0 auto; }
+  /* after the result: machine and buttons stay in view while the card scrolls */
+  .page.has-result:not(.has-census) .col-left { align-self: start; position: sticky; top: 24px; }
   #toCard { display: none; }
   #introForm { grid-template-columns: minmax(0, 1fr) auto; align-items: end; }
   #introForm .fields { grid-column: 1; grid-row: 1; }
@@ -502,7 +525,7 @@ h1 {
 }
 @media (min-width: 1024px) and (max-height: 920px) {
   :root { --cell: 100px; }
-  .page { padding-block: 56px 48px; }
+  .page { padding-block: 84px 48px; }
   .marquee { padding: 6px 8px 10px; gap: 8px; }
   .screen { margin-top: 12px; padding: 22px 26px; }
   h1 { font-size: 40px; }
@@ -517,107 +540,111 @@ h1 {
 <body>
 <div class="blood-top" aria-hidden="true"></div>
 <main class="page">
-  <section class="cabinet" aria-label="Слот автомат">
-    <div class="marquee">
-      <div class="bulbs" id="bulbs" aria-hidden="true"></div>
-      <p class="marquee-title">Барабани долі</p>
+  <div class="col-left">
+    <section class="cabinet" aria-label="Слот автомат">
+      <div class="marquee">
+        <div class="bulbs" id="bulbs" aria-hidden="true"></div>
+        <p class="marquee-title">Барабани долі</p>
+      </div>
+
+      <div id="reelsWrap">
+        <div class="reels" id="reels" aria-hidden="true">
+          <div class="reel"><div class="strip"></div></div>
+          <div class="reel"><div class="strip"></div></div>
+          <div class="reel"><div class="strip"></div></div>
+        </div>
+      </div>
+
+      <div class="screen" aria-live="polite">
+        <div class="view" id="viewIntro">
+          <h1>Хто ти, коли вимикаєш камеру?</h1>
+          <p class="lead">У кожного є темна сторона. Барабани долі вже бачили твою. Результат остаточний і оскарженню не підлягає. Навіть через HR.</p>
+          <form id="introForm" class="view" novalidate>
+            <div class="fields">
+              <label class="field" for="fName"><span>Ім&#700;я та прізвище</span>
+                <input id="fName" name="name" maxlength="40" autocomplete="name" placeholder="Наприклад, Олена Коваль">
+              </label>
+            </div>
+            <p class="fine" id="nameNote">Можна не вказувати. Тоді твій герой піде лише в загальну статистику, без згадки в Slack.</p>
+            <button class="btn btn-main btn-wide" type="submit">Зробити ставку</button>
+            <p class="fine house">Ти лише робиш ставки. Хто ти насправді, за твоїми відповідями вирішить казино. А казино, як відомо, завжди у виграші.</p>
+            <p class="fine odds">Ставка: дві хвилини. RTP: 100% правди.</p>
+          </form>
+          <p class="fine" id="introCount" hidden></p>
+        </div>
+
+        <div class="view" id="viewQ" hidden>
+          <div class="q-meta"><span id="qNum"></span><button type="button" class="link" id="btnBack">Назад</button></div>
+          <h2 class="q-title" id="qText" tabindex="-1"></h2>
+          <div class="options" id="qOpts"></div>
+          <p class="fine kbd-hint" id="kbdHint"></p>
+        </div>
+
+        <div class="view" id="viewReady" hidden>
+          <h2 class="ready-title" tabindex="-1" id="readyTitle">Ставок більше немає</h2>
+          <p class="lead">Барабани заряджені твоїми відповідями. Лишилось потягнути важіль.</p>
+          <button class="btn btn-main btn-wide" id="btnSpin" type="button">Крутити барабани</button>
+          <p class="fine kbd-hint">Або просто натисни Enter.</p>
+          <button type="button" class="link" id="btnBack2">Змінити останню відповідь</button>
+        </div>
+
+        <div class="view" id="viewLanded" hidden>
+          <p class="landed-kicker" id="landedKicker">Тобі випав персонаж</p>
+          <h2 class="landed-name" id="landedName" tabindex="-1"></h2>
+          <p class="lead" id="landedTag"></p>
+          <a href="#card" class="btn btn-ghost" id="toCard">Відкрити картку героя</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="actions" id="actions" hidden>
+      <button class="btn btn-main" id="btnSave" type="button">Зберегти картку</button>
+      <button class="btn btn-ghost" id="btnAgain" type="button">Пройти ще раз</button>
+      <p class="fine" id="status" hidden></p>
     </div>
 
-    <div id="reelsWrap">
-      <div class="reels" id="reels" aria-hidden="true">
-        <div class="reel"><div class="strip"></div></div>
-        <div class="reel"><div class="strip"></div></div>
-        <div class="reel"><div class="strip"></div></div>
-      </div>
-    </div>
-
-    <div class="screen" aria-live="polite">
-      <div class="view" id="viewIntro">
-        <h1>Хто ти, коли вимикаєш камеру?</h1>
-        <p class="lead">У кожного є темна сторона. Барабани долі вже бачили твою. Результат остаточний і оскарженню не підлягає. Навіть через HR.</p>
-        <form id="introForm" class="view" novalidate>
-          <div class="fields">
-            <label class="field" for="fName"><span>Ім&#700;я та прізвище</span>
-              <input id="fName" name="name" maxlength="40" autocomplete="name" placeholder="Наприклад, Олена Коваль">
-            </label>
-          </div>
-          <p class="fine" id="nameNote">Можна не вказувати. Тоді твій герой піде лише в загальну статистику, без згадки в Slack.</p>
-          <button class="btn btn-main btn-wide" type="submit">Зробити ставку</button>
-          <p class="fine house">Ти лише робиш ставки. Хто ти насправді, за твоїми відповідями вирішить казино. А казино, як відомо, завжди у виграші.</p>
-          <p class="fine odds">Ставка: дві хвилини. RTP: 100% правди.</p>
-        </form>
-        <p class="fine" id="introCount" hidden></p>
-      </div>
-
-      <div class="view" id="viewQ" hidden>
-        <div class="q-meta"><span id="qNum"></span><button type="button" class="link" id="btnBack">Назад</button></div>
-        <h2 class="q-title" id="qText" tabindex="-1"></h2>
-        <div class="options" id="qOpts"></div>
-        <p class="fine kbd-hint" id="kbdHint"></p>
-      </div>
-
-      <div class="view" id="viewReady" hidden>
-        <h2 class="ready-title" tabindex="-1" id="readyTitle">Ставок більше немає</h2>
-        <p class="lead">Барабани заряджені твоїми відповідями. Лишилось потягнути важіль.</p>
-        <button class="btn btn-main btn-wide" id="btnSpin" type="button">Крутити барабани</button>
-        <p class="fine kbd-hint">Або просто натисни Enter.</p>
-        <button type="button" class="link" id="btnBack2">Змінити останню відповідь</button>
-      </div>
-
-      <div class="view" id="viewLanded" hidden>
-        <p class="landed-kicker" id="landedKicker">Тобі випав персонаж</p>
-        <h2 class="landed-name" id="landedName" tabindex="-1"></h2>
-        <p class="lead" id="landedTag"></p>
-        <a href="#card" class="btn btn-ghost" id="toCard">Відкрити картку героя</a>
-      </div>
-    </div>
-  </section>
-
-  <div class="card-back" id="cardBack" aria-hidden="true">
-    <div class="back-inner">
-      <p class="arcana">?</p>
-      <div class="back-arch">
-        <svg viewBox="0 0 200 224" preserveAspectRatio="xMidYMid slice"><circle cx="146" cy="52" r="20" fill="#E2B15B" fill-opacity="0.85"/><circle cx="156" cy="46" r="18" fill="#0F0816"/><path transform="translate(48 60) scale(0.7)" d="M0 -12 L3 -3 L12 0 L3 3 L0 12 L-3 3 L-12 0 L-3 -3 Z" fill="#E2B15B"/><path transform="translate(160 150) scale(0.5)" d="M0 -12 L3 -3 L12 0 L3 3 L0 12 L-3 3 L-12 0 L-3 -3 Z" fill="#E2B15B"/><path transform="translate(40 170) scale(0.4)" d="M0 -12 L3 -3 L12 0 L3 3 L0 12 L-3 3 L-12 0 L-3 -3 Z" fill="#E2B15B"/><circle cx="70" cy="34" r="2" fill="#B9A7C2"/><circle cx="120" cy="196" r="2" fill="#B9A7C2"/><circle cx="176" cy="104" r="1.6" fill="#B9A7C2"/></svg>
-        <span class="back-q">?</span>
-      </div>
-      <p class="back-title">Твоя карта ще закрита</p>
-      <p class="back-sub">Відповідай на питання ліворуч, і барабани долі її відкриють.</p>
-    </div>
+    <section class="census" id="census" hidden aria-labelledby="censusTitle">
+      <h3 id="censusTitle">Хто є хто в компанії</h3>
+      <p class="fine" id="censusSub"></p>
+      <ul class="census-list" id="censusList"></ul>
+      <p class="fine" id="censusNote" hidden>Це демо дані. Справжня статистика з&#700;явиться, коли підключиш збереження результатів.</p>
+    </section>
   </div>
 
-  <article class="tarot" id="card" hidden>
-    <div class="tarot-inner">
-      <p class="arcana" id="cArcana"></p>
-      <div class="arch" id="cArt"></div>
-      <p class="mask" id="cSymbol"></p>
-      <p class="badge" id="cRare" hidden>Легендарний дроп</p>
-      <h2 class="tarot-name" id="cName"></h2>
-      <p class="tarot-tag" id="cTag"></p>
-      <p class="mask" id="cMask" hidden></p>
-      <p class="tarot-about" id="cAbout"></p>
-      <dl class="traits">
-        <div><dt>Суперсила на роботі</dt><dd id="cPower"></dd></div>
-        <div><dt>Слабке місце</dt><dd id="cWeak"></dd></div>
-        <div><dt>Слот тотем</dt><dd id="cTotem"></dd></div>
-        <div><dt>Пара на шабаш</dt><dd id="cPair"></dd></div>
-        <div><dt>Костюм на вечірку</dt><dd id="cCostume"></dd></div>
-      </dl>
-      <p class="tarot-foot" id="cFoot"></p>
+  <div class="col-right">
+    <div class="card-back" id="cardBack" aria-hidden="true">
+      <div class="back-inner">
+        <p class="arcana">?</p>
+        <div class="back-arch">
+          <svg viewBox="0 0 200 224" preserveAspectRatio="xMidYMid slice"><circle cx="146" cy="52" r="20" fill="#E2B15B" fill-opacity="0.85"/><circle cx="156" cy="46" r="18" fill="#0F0816"/><path transform="translate(48 60) scale(0.7)" d="M0 -12 L3 -3 L12 0 L3 3 L0 12 L-3 3 L-12 0 L-3 -3 Z" fill="#E2B15B"/><path transform="translate(160 150) scale(0.5)" d="M0 -12 L3 -3 L12 0 L3 3 L0 12 L-3 3 L-12 0 L-3 -3 Z" fill="#E2B15B"/><path transform="translate(40 170) scale(0.4)" d="M0 -12 L3 -3 L12 0 L3 3 L0 12 L-3 3 L-12 0 L-3 -3 Z" fill="#E2B15B"/><circle cx="70" cy="34" r="2" fill="#B9A7C2"/><circle cx="120" cy="196" r="2" fill="#B9A7C2"/><circle cx="176" cy="104" r="1.6" fill="#B9A7C2"/></svg>
+          <span class="back-q">?</span>
+        </div>
+        <p class="back-title">Твоя карта ще закрита</p>
+        <p class="back-sub">Відповідай на питання ліворуч, і барабани долі її відкриють.</p>
+      </div>
     </div>
-  </article>
 
-  <div class="actions" id="actions" hidden>
-    <button class="btn btn-main" id="btnSave" type="button">Зберегти картку</button>
-    <button class="btn btn-ghost" id="btnAgain" type="button">Пройти ще раз</button>
-    <p class="fine" id="status" hidden></p>
+    <article class="tarot" id="card" hidden>
+      <div class="tarot-inner">
+        <p class="arcana" id="cArcana"></p>
+        <div class="arch" id="cArt"></div>
+        <p class="mask" id="cSymbol"></p>
+        <p class="badge" id="cRare" hidden>Легендарний дроп</p>
+        <h2 class="tarot-name" id="cName"></h2>
+        <p class="tarot-tag" id="cTag"></p>
+        <p class="mask" id="cMask" hidden></p>
+        <p class="tarot-about" id="cAbout"></p>
+        <dl class="traits">
+          <div><dt>Суперсила на роботі</dt><dd id="cPower"></dd></div>
+          <div><dt>Слабке місце</dt><dd id="cWeak"></dd></div>
+          <div><dt>Слот тотем</dt><dd id="cTotem"></dd></div>
+          <div><dt>Пара на шабаш</dt><dd id="cPair"></dd></div>
+          <div><dt>Костюм на вечірку</dt><dd id="cCostume"></dd></div>
+        </dl>
+        <p class="tarot-foot" id="cFoot"></p>
+      </div>
+    </article>
   </div>
-
-  <section class="census" id="census" hidden aria-labelledby="censusTitle">
-    <h3 id="censusTitle">Хто є хто в компанії</h3>
-    <p class="fine" id="censusSub"></p>
-    <ul class="census-list" id="censusList"></ul>
-    <p class="fine" id="censusNote" hidden>Це демо дані. Справжня статистика з&#700;явиться, коли підключиш збереження результатів.</p>
-  </section>
 </main>
 
 <div class="overlay" id="overlay" hidden role="dialog" aria-modal="true" aria-label="Картка персонажа">
@@ -637,7 +664,7 @@ h1 {
 /* ===== Налаштування: це все, що треба змінити перед запуском ===== */
 var CONFIG = {
   // URL вебзастосунку Apps Script (закінчується на /exec). Порожньо = демо режим без збереження.
-  ENDPOINT: 'https://script.google.com/macros/s/AKfycbxBsRAnOyhn8VlJUQ_OFhFPvzaSvPQlEvIT1F5KkAC-O5mvJrK1T56aSgQoSXuTUIUh/exec',
+  ENDPOINT: '',
   // Шанс легендарного персонажа (0.04 = 4%).
   RARE_CHANCE: 0.04,
   // Підпис унизу картки.
@@ -1545,6 +1572,7 @@ var CAST_KEYS = Object.keys(CAST);
     show('viewLanded', 'landedName');
     fillCard(res);
     var card = $('card'), back = $('cardBack');
+    document.querySelector('.page').classList.add('has-result');
     var wide = window.matchMedia && window.matchMedia('(min-width: 1024px)').matches;
     card.classList.remove('enter', 'flip-in');
     if (wide && !reduced && !back.hidden) {
@@ -1630,6 +1658,7 @@ var CAST_KEYS = Object.keys(CAST);
     $('censusSub').textContent = 'Квіз пройшли: ' + (stats.total || 0);
     $('censusNote').hidden = !demo;
     $('census').hidden = false;
+    document.querySelector('.page').classList.add('has-census');
   }
 
   if (CONFIG.ENDPOINT) {
@@ -1692,12 +1721,15 @@ var CAST_KEYS = Object.keys(CAST);
 
   function makeCardBlob(res, symbolOnly) {
     var ch = CHARACTERS[res.key];
-    var DISPLAY = '"Cormorant Unicase", "Cormorant Garamond", Georgia, serif';
+    var DISPLAY = '"Playfair Display", Georgia, serif';
+    var DECO = '"Cormorant Unicase", "Cormorant Garamond", Georgia, serif';
     var BODY = '"Onest", "Segoe UI", system-ui, sans-serif';
     var fontsReady = document.fonts && document.fonts.load ? Promise.race([
       Promise.all([
-        document.fonts.load('700 80px "Cormorant Unicase"', 'Відьма'),
-        document.fonts.load('600 36px "Cormorant Unicase"', 'Відьма'),
+        document.fonts.load('600 34px "Cormorant Unicase"', 'XIV'),
+        document.fonts.load('700 80px "Playfair Display"', 'Відьма'),
+        document.fonts.load('italic 500 34px "Playfair Display"', 'Відьма'),
+        document.fonts.load('600 30px "Playfair Display"', 'Відьма'),
         document.fonts.load('400 31px "Onest"', 'Відьма'),
         document.fonts.load('500 26px "Onest"', 'Відьма')
       ]),
@@ -1727,7 +1759,7 @@ var CAST_KEYS = Object.keys(CAST);
 
       // arcana numeral
       ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
-      ctx.font = '600 34px ' + DISPLAY; ctx.fillStyle = '#6E2246';
+      ctx.font = '600 34px ' + DECO; ctx.fillStyle = '#6E2246';
       var numeral = ch.arcana.split('').join(' ');
       ctx.fillText(numeral, cx, 156);
       var nw = ctx.measureText(numeral).width / 2 + 26;
@@ -1773,15 +1805,15 @@ var CAST_KEYS = Object.keys(CAST);
       }
 
       // name, auto-fit
-      var fs = 80;
+      var fs = 72;
       ctx.font = '700 ' + fs + 'px ' + DISPLAY;
-      while (ctx.measureText(ch.name).width > 820 && fs > 58) { fs -= 2; ctx.font = '700 ' + fs + 'px ' + DISPLAY; }
+      while (ctx.measureText(ch.name).width > 820 && fs > 52) { fs -= 2; ctx.font = '700 ' + fs + 'px ' + DISPLAY; }
       var nameLines = ctx.measureText(ch.name).width > 820 ? wrap(ctx, ch.name, 820) : [ch.name];
       ctx.fillStyle = '#2A1430';
-      nameLines.forEach(function (l) { y += fs * 0.98; ctx.fillText(l, cx, y); });
+      nameLines.forEach(function (l) { y += fs * 1.08; ctx.fillText(l, cx, y); });
 
-      ctx.font = '600 36px ' + DISPLAY; ctx.fillStyle = '#6E2246';
-      wrap(ctx, ch.tagline, 820).forEach(function (l) { y += 46; ctx.fillText(l, cx, y); });
+      ctx.font = 'italic 500 34px ' + DISPLAY; ctx.fillStyle = '#6E2246';
+      wrap(ctx, ch.tagline, 820).forEach(function (l, i) { y += i ? 44 : 54; ctx.fillText(l, cx, y); });
       if (res.rare) {
         ctx.font = '400 26px ' + BODY; ctx.fillStyle = '#6D5873';
         y += 40; ctx.fillText('Під маскою: ' + CHARACTERS[res.base].name, cx, y);
@@ -1800,7 +1832,7 @@ var CAST_KEYS = Object.keys(CAST);
         ctx.strokeStyle = 'rgba(142,108,54,0.6)'; ctx.lineWidth = 1.5;
         ctx.beginPath(); ctx.moveTo(140, y); ctx.lineTo(W - 140, y); ctx.stroke();
         y += 16 + 30;
-        ctx.font = '700 31px ' + DISPLAY; ctx.fillStyle = '#6E2246'; ctx.fillText(s[0], 140, y);
+        ctx.font = '600 29px ' + DISPLAY; ctx.fillStyle = '#6E2246'; ctx.fillText(s[0], 140, y);
         ctx.font = '400 30px ' + BODY; ctx.fillStyle = '#2A1430';
         lines.forEach(function (l) { y += 38; ctx.fillText(l, 140, y); });
         y += 16;
@@ -1889,6 +1921,7 @@ var CAST_KEYS = Object.keys(CAST);
     state.answers = []; state.result = null;
     $('card').hidden = true; $('actions').hidden = true; $('census').hidden = true;
     $('cardBack').hidden = false;
+    document.querySelector('.page').classList.remove('has-result', 'has-census');
     $('reelsWrap').hidden = false;
     parkReels(['vampire', 'pumpkin', 'ghost'].map(function (k, i) { return i === 1 ? pick(CAST_KEYS.filter(function (c) { return c !== 'vampire' && c !== 'ghost'; })) : k; }));
     setBulbs('idle');
