@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Барабани долі</title>
-<meta name="description" content="Хелловінський квіз Magnetics: девʼять спінів і барабани долі покажуть твою темну сторону.">
+<meta name="description" content="Хелловінський квіз: девʼять спінів і барабани долі покажуть твою темну сторону.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Барабани долі">
-<meta property="og:description" content="Хелловінський квіз Magnetics: девʼять спінів і барабани долі покажуть твою темну сторону.">
+<meta property="og:description" content="Хелловінський квіз: девʼять спінів і барабани долі покажуть твою темну сторону.">
 <meta property="og:image" content="https://hr-mgnt.github.io/halloween-quiz/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -399,6 +399,7 @@ h1 {
 .pair-ico svg { width: 92%; height: 92%; }
 .pair-ico img, .census-ico img { width: 100%; height: 100%; object-fit: cover; }
 .tarot-foot { margin: 2px 0 0; text-align: center; font-size: 13.5px; color: var(--paper-muted); }
+.tarot-foot .foot-name { display: block; margin-bottom: 2px; font-size: 15px; font-weight: 500; color: var(--paper-ink); }
 @media (max-width: 460px) {
   .fields { grid-template-columns: 1fr; }
   .traits > div { grid-template-columns: 1fr; }
@@ -664,11 +665,11 @@ h1 {
 /* ===== Налаштування: це все, що треба змінити перед запуском ===== */
 var CONFIG = {
   // URL вебзастосунку Apps Script (закінчується на /exec). Порожньо = демо режим без збереження.
-  ENDPOINT: 'https://script.google.com/macros/s/AKfycbxBsRAnOyhn8VlJUQ_OFhFPvzaSvPQlEvIT1F5KkAC-O5mvJrK1T56aSgQoSXuTUIUh/exec',
+  ENDPOINT: '',
   // Шанс легендарного персонажа (0.04 = 4%).
   RARE_CHANCE: 0.04,
   // Підпис унизу картки.
-  FOOTER: 'Magnetics, Хелловін 2026'
+  FOOTER: 'Хелловін 2026'
 };
 
 /* ===== Герої =====
@@ -1870,7 +1871,7 @@ var CAST_KEYS = Object.keys(CAST);
       $('cPair').textContent = ch.pairWhy;
     }
     var who = state.name;
-    $('cFoot').textContent = (who ? who + '. ' : '') + CONFIG.FOOTER;
+    $('cFoot').innerHTML = (who ? '<span class="foot-name">' + esc(who) + '</span>' : '') + esc(CONFIG.FOOTER);
   }
 
   /* ---------- Saving results ---------- */
